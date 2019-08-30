@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const books = require('./routes/api/books')
 
 // Express Initialization
 const app = express();
@@ -18,7 +19,13 @@ mongoose.connect(db, { useNewUrlParser: true })
         .then(()=> console.log('Mongodb connected'))
         .catch(error=> console.log(error));
 
+
+app.use('/api/books', books);
+
+
 const port = process.env.PORt || 5000;
+
+
 
 app.listen(port, ()=>{
     console.log(`server started on port ${port}`);
