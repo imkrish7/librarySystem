@@ -7,7 +7,12 @@ const Books =  require('../../models/Books')
 router.get('/',(req,res)=>{
 
     Books.find()
-          .then(items => res.json(items))
+          .then(books => res.json(books))
+})
+
+router.get('/:id',(req,res)=>{
+    
+    Books.findById(req.params.id).then( book=> res.json(book));
 })
 
 router.post('/add',(req,res)=>{
@@ -25,6 +30,7 @@ router.post('/add',(req,res)=>{
 
 router.put('/edit/:id',(req,res)=>{
 
+    
     Books.findById(req.params.id, (error, data)=>{
         if(error){
             res.status(404).json({"error": "Id is not valid"})

@@ -1,0 +1,28 @@
+.add{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.addform{
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+}
+
+.addform input, .addform textarea, .addform button{
+    margin: 10px;
+}
+
+.addform input{
+    padding: 10px;
+}
+.addform input[type="submit"]{
+    box-sizing: border-box;
+    border: 1px solid #16a085;
+    background: none;
+    color: #16a085;
+    font-size: 20px;
+    padding: 10px;
+    display: block;
+}
