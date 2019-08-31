@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import './navbar.css';
+import { Link } from 'react-router-dom';
+import './styles/navbar.css';
 
 class AppNavbar extends Component{
 
-    constructor(props){
-        super(props);
-    }
 
     render(){
 
         return(
     
            <nav className="navbar">
-               <h3>Admin</h3>
-               <h3><a href="/">Home</a></h3>
+               <h3>Library</h3>
+               <h3><Link to="/">Home</Link></h3>
            </nav>
         );
     }

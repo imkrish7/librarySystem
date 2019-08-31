@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addBook } from '../actions/booksAction';
-import './newbook.css';
+import { Link } from 'react-router-dom';
+import './styles/newbook.css';
 
 class newBook extends Component{
    
@@ -37,7 +38,7 @@ handleSubmit = (e)=>{
     return (
       <div className="add">
         <h1>Add New Book</h1>
-        <form className="addform" method="POST" onSubmit= { this.handleSubmit }>
+        <form className="addform" method="POST" onSubmit={this.handleSubmit}>
           <input
             placeholder="Enter Book Name..."
             id="name"
@@ -71,6 +72,8 @@ handleSubmit = (e)=>{
             onChange={this.handleChange}
             id="rating"
             name="rating"
+            min="1"
+            max="5"
             required
           />
           <input
@@ -83,6 +86,9 @@ handleSubmit = (e)=>{
           />
           <input type="submit" value="ADD" />
         </form>
+        <Link to={`/admin`}>
+          <button>Cancel</button>
+        </Link>
       </div>
     );
     }

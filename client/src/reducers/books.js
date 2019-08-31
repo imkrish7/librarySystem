@@ -19,7 +19,7 @@ export default function(state = initialState, action){
         case DELETE_BOOK:
           return {
             ...state,
-            books: state.books.filter(item => item._id != action.payload )
+            books: state.books.filter(item => item._id !== action.payload )
           };
         case ADD_BOOK:
           return {

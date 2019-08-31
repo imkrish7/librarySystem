@@ -1,0 +1,40 @@
+.booklist{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #2c3e50;
+    font-size: 20px;
+}
+
+.booklist table{
+    width: 100%;
+    border-collapse:collapse;
+    
+}
+th,td{
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+button{
+    background: none;
+    border: 1px solid #c0392b;
+    color: #c0392b;
+    font-size: 20px;
+}
+
+
+ a{
+    text-decoration: none;
+    color: #2c3e50;
+}
+a:hover{
+    text-decoration: none;
+}

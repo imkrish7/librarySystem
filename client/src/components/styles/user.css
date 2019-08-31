@@ -1,0 +1,32 @@
+
+.head{
+    width: 100%;
+    display: flex;
+
+}
+
+.head-text{
+    order: 1;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.sorting{
+    order: 1;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+button{
+    margin: 10px;
+    padding: 10px;
+}
+
+select{
+    padding: 10px;
+    font-size: 20px;
+}

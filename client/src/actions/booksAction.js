@@ -51,11 +51,15 @@ export const getBook= (id)=> dispatch=>{
         }))
 }
 
-// export const editBook = (book) => dispatch=>{
+export const editBook = (book) => dispatch=>{
 
-//     axios
-//         .put(`/api/books/edit/`)
-// }
+    axios
+        .put(`/api/books/edit/${book.id}`, book)
+        .then(res=>dispatch({
+            type: EDIT_BOOK,
+            payload: res.data
+        }))
+}
 
 
 export const setBookLoading = (book) =>{

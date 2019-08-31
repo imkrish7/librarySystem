@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getBooks, deleteBook } from '../actions/booksAction'
 import PropTypes from 'prop-types';
+import './styles/list.css';
 
 class List extends Component{
 
@@ -19,12 +19,37 @@ class List extends Component{
         const { books } = this.props.books
         // console.log(books)
         return (
-            <ListGroup>
-                { books.map(item=>{
-                    return <ListGroupItem key={ item._id }> <Link to={`/books/${item._id}`} >${item.name}</Link><button onClick={ this.onDeleteClick.bind(this,item._id)}>Delete</button></ListGroupItem>
-                }) }
-            </ListGroup>
-        )
+          <div className="booklist">
+            <h1>Book List </h1>
+
+            <table className="books">
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Author</th>
+                  <th>Delete</th>
+                </tr>
+                {books.map(item => {
+                  return (
+                    <tr key={item._id}>
+                      <td>
+                        <Link to={`/books/${item._id}`}>{item.name}</Link>
+                      </td>
+                      <td> {item.author}</td>
+                      <td>
+                        <button
+                          onClick={this.onDeleteClick.bind(this, item._id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        );
     }
 }
 

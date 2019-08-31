@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { getBook } from '../actions/booksAction';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './book.css';
+import './styles/book.css';
 const Book = (props) => {
  
     useEffect(()=>{
@@ -14,14 +14,19 @@ const Book = (props) => {
       <div className="book">
         <ul className="desc">
           {Object.keys(props.book)
-            .filter(item => item != "_id" && item != "__v")
+            .filter(item => item !== "_id" && item !== "__v")
             .map(item => (
               <li key={item}>{props.book[item]} </li>
             ))}
         </ul>
-        <button>
-          <Link to={`/books/${props.book._id}/edit`}>Edit</Link>
-        </button>
+        <div className="buttons">
+          <Link to={`/books/list`}>
+            <button>Back</button>
+          </Link>
+          <Link to={`/books/${props.book._id}/edit`}>
+            <button>Edit</button>
+          </Link>
+        </div>
       </div>
     );
 }

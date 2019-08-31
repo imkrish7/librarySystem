@@ -1,0 +1,24 @@
+.admin_dashboard {
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero{
+    display: flex;
+}
+.admin,
+.user {
+    padding: 10px;
+    margin: 10px;
+    font-size: 30px;
+    border: 1px solid #2c3e50;
+    color: #2c3e50;
+}
+
+a {
+    text-decoration: none;
+    color: #2c3e50;
+}
