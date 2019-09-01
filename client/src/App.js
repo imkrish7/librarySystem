@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import AppNavbar from './components/navbar';
 import List from './components/list';
 import InputForm from './components/newBook';

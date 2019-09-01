@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const books = require('./routes/api/books')
-
+const path = require('path');
 // Express Initialization
 const app = express();
 
@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 const db = require('./config/keys').mongodbURI;
 
 // Connect to Mongo
-
 mongoose.connect(db, { useNewUrlParser: true })
         .then(()=> console.log('Mongodb connected'))
         .catch(error=> console.log(error));
@@ -22,11 +21,9 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 app.use('/api/books', books);
 
+// Serve static assets if in production 
 
 const port = process.env.PORt || 5000;
-
-
-
 app.listen(port, ()=>{
     console.log(`server started on port ${port}`);
 })

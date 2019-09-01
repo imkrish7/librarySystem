@@ -25,7 +25,7 @@ router.post('/add',(req,res)=>{
         author: req.body.author
     })
 
-    newBook.save().then(data=> res.json(data));
+    newBook.save().then(data=> res.json(data)).catch(error=> res.status(404).json({"error":"Something is missing"}));
 })
 
 router.put('/edit/:id',(req,res)=>{
