@@ -25,6 +25,10 @@ npm run start
 
 npm run client
 
+// Run test in server side
+
+npm run test
+
 ```
 
 # App Info

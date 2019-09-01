@@ -9,7 +9,7 @@ class newBook extends Component{
     state = {
         name: "",
         description: "",
-        genere: "",
+        genre: "",
         rating: "",
         author: ""
     }
@@ -26,11 +26,19 @@ handleSubmit = (e)=>{
     const newItem = {
         name: this.state.name,
         description: this.state.description,
-        genere: this.state.genere,
+        genre: this.state.genre,
         rating: this.state.rating,
         author: this.state.author
     }
     this.props.addBook(newItem);
+
+    this.setState({
+      name: "",
+      description: "",
+      genre: "",
+      rating: "",
+      author: ""
+    });
 }
 
     render(){
@@ -59,10 +67,10 @@ handleSubmit = (e)=>{
           ></textarea>
           <input
             placeholder="Enter Book Genere..."
-            id="genere"
+            id="genre"
             onChange={this.handleChange}
-            value={this.state.genere}
-            name="genere"
+            value={this.state.genre}
+            name="genre"
             required
           />
           <input

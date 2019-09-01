@@ -22,15 +22,25 @@ describe('Server',()=>{
         })
 
          it("It should GET the book",(done)=>{
+             let book = new Book({
+             name: "Batman: The Dark Knight Returns",
+             description:
+               "Synopsis. The Dark Knight Returns is a Batman story written by Frank Miller with illustrations by Miller, Klaus Janson, and Lynn Varley in 1986. It is a limited series set in a possible future, portrayed as Batman's last adventure.",
+             genre: "Comic and Graphic Novel",
+             rating: 5,
+             author: "Frank Miller"
+           });
+
+           book.save((error,book)=>{
             chai
               .request(app)
-              .get("/api/books/5d6a4cc271a5782e4867ec51")
+              .get("/api/books/" + book.id)
               .end((error, res) => {
                 assert.equal(res.status,200);
                 assert.isObject(res.body);
                 done();
               });
-
+            })
          it("It should not GET the book",(done)=>{
             chai
               .request(app)
@@ -42,7 +52,7 @@ describe('Server',()=>{
                 done();
               });
     })
-})
+
 
 describe('POST Request', () => {
    it("IT will Give error a books to database and return save data", done => {
@@ -50,7 +60,7 @@ describe('POST Request', () => {
        name: "The Lord of the Rings",
        description:
          "The Lord of the Rings is a film series of three epic fantasy adventure films directed by Peter Jackson, based on the eponymous novel written by J. R. R. Tolkien. The films are subtitled The Fellowship of the Ring (2001), The Two Towers (2002) and The Return of the King (2003).",
-       genere: "Adventure",
+       genre: "Adventure",
        author: "J.R.R. Tolkien"
      };
 
@@ -70,7 +80,7 @@ describe('POST Request', () => {
           let book = {
             name: "The Lord of the Rings",
             description:"The Lord of the Rings is a film series of three epic fantasy adventure films directed by Peter Jackson, based on the eponymous novel written by J. R. R. Tolkien. The films are subtitled The Fellowship of the Ring (2001), The Two Towers (2002) and The Return of the King (2003).",
-            genere: "Adventure",
+            genre: "Adventure",
             rating: 5,
             author: "J.R.R. Tolkien",
            
@@ -99,7 +109,7 @@ describe('PUT Request',()=>{
              name: "The Lord of the Rings",
              description:
                "The Lord of the Rings is a film series of three epic fantasy adventure films directed by Peter Jackson, based on the eponymous novel written by J. R. R. Tolkien. The films are subtitled The Fellowship of the Ring (2001), The Two Towers (2002) and The Return of the King (2003).",
-             genere: "Adventure",
+             genre: "Adventure",
              rating: 5,
              author: "J.R.R. Tolkien"
            }
@@ -113,7 +123,7 @@ describe('PUT Request',()=>{
               name: "The Lord of the Rings",
               description:
                 "The Lord of the Rings is a film series of three epic fantasy adventure films directed by Peter Jackson, based on the eponymous novel written by J. R. R. Tolkien. The films are subtitled The Fellowship of the Ring (2001), The Two Towers (2002) and The Return of the King (2003).",
-              genere: "Adventure",
+              genre: "Adventure",
               rating: 4,
               author: "J.R.R. Tolkien"
             })
@@ -134,7 +144,7 @@ describe('PUT Request',()=>{
           name: "The Lord of the Rings",
           description:
             "The Lord of the Rings is a film series of three epic fantasy adventure films directed by Peter Jackson, based on the eponymous novel written by J. R. R. Tolkien. The films are subtitled The Fellowship of the Ring (2001), The Two Towers (2002) and The Return of the King (2003).",
-          genere: "Adventure",
+          genre: "Adventure",
           rating: 4,
           author: "J.R.R. Tolkien"
         })
@@ -155,7 +165,7 @@ describe('PUT Request',()=>{
                  name: "The Lord of the Rings",
                  description:
                    "The Lord of the Rings is a film series of three epic fantasy adventure films directed by Peter Jackson, based on the eponymous novel written by J. R. R. Tolkien. The films are subtitled The Fellowship of the Ring (2001), The Two Towers (2002) and The Return of the King (2003).",
-                 genere: "Adventure",
+                 genre: "Adventure",
                  rating: 5,
                  author: "J.R.R. Tolkien"
                });
@@ -188,5 +198,5 @@ describe('PUT Request',()=>{
     })
 
 })
-
+    })
 })

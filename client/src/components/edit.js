@@ -10,7 +10,7 @@ class EditBook extends Component {
     id:"",
     name: "",
     description: "",
-    genere: "",
+    genre: "",
     rating: "",
     author: ""
   };
@@ -24,7 +24,7 @@ class EditBook extends Component {
        id: newProps.book._id,
        name: newProps.book.name,
        description: newProps.book.description,
-       genere: newProps.book.genere,
+       genre: newProps.book.genre,
        rating: newProps.book.rating,
        author: newProps.book.author
      });
@@ -43,7 +43,7 @@ class EditBook extends Component {
       id: this.state.id,
       name: this.state.name,
       description: this.state.description,
-      genere: this.state.genere,
+      genre: this.state.genre,
       rating: this.state.rating,
       author: this.state.author
     };
@@ -78,10 +78,10 @@ class EditBook extends Component {
           ></textarea>
           <input
             placeholder="Enter Book Genere..."
-            id="genere"
+            id="genre"
             onChange={this.handleChange}
             value={this.state.genere}
-            name="genere"
+            name="genre"
             required
           />
           <input

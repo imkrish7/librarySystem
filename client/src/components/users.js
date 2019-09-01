@@ -18,10 +18,10 @@ class userList extends Component {
        this.ratingSort();
      } else if (this.state.sort === "genre") {
        this.state.books.sort((a, b) => {
-         if (a.genere > b.genere) {
+         if (a.genre > b.genre) {
            return 1;
          }
-         if (a.genere < b.genere) {
+         if (a.genre < b.genre) {
            return -1;
          }
          return 0;
@@ -92,7 +92,7 @@ class userList extends Component {
             <tr>
               <th>Name</th>
               <th>Description</th>
-              <th>Genere</th>
+              <th>Genre</th>
               <th>Rating</th>
               <th>Author</th>
             </tr>
@@ -101,7 +101,7 @@ class userList extends Component {
                 <tr key={item._id}>
                   <td>{item.name}</td>
                   <td>{item.description}</td>
-                  <td>{item.genere}</td>
+                  <td>{item.genre}</td>
                   <td>{item.rating}</td>
                   <td>{item.author}</td>
                 </tr>

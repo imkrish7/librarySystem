@@ -21,7 +21,6 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 app.use('/api/books', books);
 
-// Serve static assets if in production 
 
 const port = process.env.PORt || 5000;
 app.listen(port, ()=>{

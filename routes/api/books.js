@@ -20,7 +20,7 @@ router.post('/add',(req,res)=>{
     const newBook = new Books({
         name: req.body.name,
         description: req.body.description,
-        genere: req.body.genere,
+        genre: req.body.genre,
         rating: req.body.rating,
         author: req.body.author
     })
@@ -37,7 +37,7 @@ router.put('/edit/:id',(req,res)=>{
         if(data!==null){  
             data.name=  req.body.name;
             data.description = req.body.description;
-            data.genere = req.body.genere;
+            data.genre = req.body.genre;
             data.rating = req.body.rating;
             data.author = req.body.author;
             data.save().then((book)=> res.json(book));
