@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const auth = require('../middleware/auth');
 const Books =  require('../../models/Books')
 
 
@@ -15,7 +16,7 @@ router.get('/:id',(req,res)=>{
     Books.findById(req.params.id).then( book=> res.json(book)).catch(error=> res.status(404).json({"error": "Id is not valid"}));
 })
 
-router.post('/add',(req,res)=>{
+router.post('/add',auth,(req,res)=>{
 
     const newBook = new Books({
         name: req.body.name,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AppNavbar from './components/navbar';
 import List from './components/list';
 import InputForm from './components/newBook';
@@ -9,9 +9,16 @@ import Index from "./components/index";
 import UserList from './components/users';
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/authActions';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
+class  App extends Component {
+
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+  
+  render(){
   return (
     <Provider store={store}>
       <Router>
@@ -30,6 +37,7 @@ function App() {
       </Router>
     </Provider>
   );
+  }
 }
 
 export default App;
